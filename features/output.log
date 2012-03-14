@@ -1,0 +1,44 @@
+Feature: display list of movies filtered by MPAA rating
+  
+  As a concerned parent
+  So that I can quickly browse movies appropriate for my family
+  I want to see movies matching only certain MPAA ratings
+
+  Background: movies have been added to database # filter_movie_list.feature:7
+    Given the following movies exist:            # step_definitions/movie_steps.rb:3
+      | title                   | rating | release_date |
+      | Aladdin                 | G      | 25-Nov-1992  |
+      | The Terminator          | R      | 26-Oct-1984  |
+      | When Harry Met Sally    | R      | 21-Jul-1989  |
+      | The Help                | PG-13  | 10-Aug-2011  |
+      | Chocolat                | PG-13  | 5-Jan-2001   |
+      | Amelie                  | R      | 25-Apr-2001  |
+      | 2001: A Space Odyssey   | G      | 6-Apr-1968   |
+      | The Incredibles         | PG     | 5-Nov-2004   |
+      | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
+      | Chicken Run             | G      | 21-Jun-2000  |
+      Could not find table 'movies' (ActiveRecord::StatementInvalid)
+      ./step_definitions/movie_steps.rb:7:in `block (2 levels) in <top (required)>'
+      ./step_definitions/movie_steps.rb:4:in `each'
+      ./step_definitions/movie_steps.rb:4:in `/the following movies exist/'
+      filter_movie_list.feature:9:in `Given the following movies exist:'
+    And I am on the RottenPotatoes home page     # step_definitions/web_steps.rb:44
+
+  Scenario: restrict to movies with 'PG' or 'R' ratings # filter_movie_list.feature:24
+
+  # enter step(s) to check the 'PG' and 'R' checkboxes
+  # enter step(s) to uncheck all other checkboxes
+  # enter step to "submit" the search form on the homepage
+  # enter step(s) to ensure that PG and R movies are visible
+  # enter step(s) to ensure that other movies are not visible
+  Scenario: no ratings selected              # filter_movie_list.feature:31
+
+  # see assignment
+  Scenario: all ratings selected             # filter_movie_list.feature:34
+
+Failing Scenarios:
+cucumber filter_movie_list.feature:24 # Scenario: restrict to movies with 'PG' or 'R' ratings
+
+3 scenarios (1 failed, 2 skipped)
+6 steps (1 failed, 5 skipped)
+0m1.745s
